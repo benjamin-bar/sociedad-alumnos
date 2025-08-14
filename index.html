@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Anáhuac Cancún | Campus Internacional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 140, 0, 0.2);
+            transform: translateY(-2px);
+            color: #FF8C00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(45, 45, 45, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a1a" width="1200" height="600"/><path fill="%23FF8C00" opacity="0.1" d="M0 300L200 250L400 350L600 200L800 300L1000 150L1200 250V600H0Z"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #FF8C00, #FF6347);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
+            background: linear-gradient(45deg, #FF6347, #FF8C00);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #FF8C00;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF8C00;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: rgba(255, 140, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 140, 0, 0.2);
+            border: 1px solid rgba(255, 140, 0, 0.5);
+        }
+
+        /* Admission Process */
+        .admission {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .admission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FF6347 100%);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .student-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #FF8C00, #FF6347);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Universidad Anáhuac Cancún</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#programas">Programas</a></li>
+                <li><a href="#admisiones">Admisiones</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>BIENVENIDO AL CAMPUS INTERNACIONAL</h1>
+            <p>Conviértete en un líder internacional de acción positiva en el corazón del Caribe Mexicano</p>
+            <a href="#programas" class="cta-button">Descubre Nuestros Programas</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats scroll-fade">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">2%</div>
+                <div class="stat-label">Mejores Universidades del Mundo</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">21M+</div>
+                <div class="stat-label">Turistas en Quintana Roo 2023</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">32M+</div>
+                <div class="stat-label">Pasajeros Aeropuerto Cancún 2023</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Ciudades Conectadas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs scroll-fade" id="programas">
+        <div class="programs-container">
+            <h2 class="section-title">Nuestros Programas Internacionales</h2>
+            <div class="program-card">
+                <h3>International Hotel Management</h3>
+                <p>Forma parte de la industria hotelera más dinámica del mundo en el destino turístico #1 de México.</p>
+            </div>
+            <div class="program-card">
+                <h3>Comunicación Internacional</h3>
+                <p>Desarrolla habilidades de comunicación global en un entorno multicultural único.</p>
+            </div>
+            <div class="program-card">
+                <h3>Negocios Internacionales</h3>
+                <p>Prepárate para liderar en el mercado global desde el corazón del Caribe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process -->
+    <section class="admission scroll-fade" id="admisiones">
+        <div class="admission-container">
+            <h2 class="section-title">Proceso de Admisión</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Solicita Información</h3>
+                    <p>Contacta con nuestro equipo de admisiones internacional</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Proceso de Admisión</h3>
+                    <p>Conoce todos los pasos y requisitos necesarios</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Programa tus Pruebas</h3>
+                    <p>Agenda tus exámenes de admisión</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials scroll-fade" id="testimonios">
+        <div class="testimonials-container">
+            <h2 class="section-title">Testimonios de Estudiantes Internacionales</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="student-info">
+                        <div class="student-avatar">MM</div>
+                        <div>
+                            <h4>Mónica Marenko</h4>
+                            <p>Nicaragua</p>
+                        </div>
+                    </div>
+                    <p>"Estudiar en la Universidad Anáhuac Cancún ha sido una experiencia muy especial. Las instalaciones son muy bonitas, y la experiencia de ser una alumna internacional es muy enriquecedora."</p>
+                </div>
+                <div class="testimonial">
+                    <div class="student-info">
+                        <div class="student-avatar">JA</div>
+                        <div>
+                            <h4>José Armando Alarcón</h4>
+                            <p>Honduras</p>
+                        </div>
+                    </div>
+                    <p>"Throughout the semesters I've learned a lot about hospitality management. The teachers have been very kind and supportive. It's an honor to be part of this university."</p>
+                </div>
+                <div class="testimonial">
+                    <div class="student-info">
+                        <div class="student-avatar">AG</div>
+                        <div>
+                            <h4>Andrea García Borreguero</h4>
+                            <p>España</p>
+                        </div>
+                    </div>
+                    <p>"Después de cinco años en esta institución, puedo afirmar que la Universidad Anáhuac Cancún me ha brindado conocimiento, pasión y todas las oportunidades que he requerido."</p>
+                </div>
+                <div class="testimonial">
+                    <div class="student-info">
+                        <div class="student-avatar">CS</div>
+                        <div>
+                            <h4>Carlos Salinas Tadic</h4>
+                            <p>Bolivia</p>
+                        </div>
+                    </div>
+                    <p>"My experience as an International Hotel Management student has been excellent. The teachers are well-prepared and passionate. Choosing this career was the best decision I took!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>Universidad Anáhuac Cancún</h3>
+            <p>Campus Internacional - Formando Líderes de Acción Positiva</p>
+            <p>Cancún, Quintana Roo, México</p>
+            <br>
+            <p>&copy; 2025 Universidad Anáhuac Cancún. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+            }
+        });
+
+        // Dynamic text animation
+        const heroTitle = document.querySelector('.hero h1');
+        const text = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < text.length) {
+                heroTitle.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>
