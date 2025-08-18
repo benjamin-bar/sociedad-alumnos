@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidad Anáhuac Cancún | Campus Internacional</title>
+    <title>Planeación de Actividades - Sociedad de Alumnos de Ingeniería</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,307 +14,118 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+            min-height: 100vh;
+            animation: fadeIn 1s ease-in;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .nav-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            background: rgba(255, 140, 0, 0.2);
-            transform: translateY(-2px);
-            color: #FF8C00;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(45, 45, 45, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a1a1a" width="1200" height="600"/><path fill="%23FF8C00" opacity="0.1" d="M0 300L200 250L400 350L600 200L800 300L1000 150L1200 250V600H0Z"/></svg>');
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             position: relative;
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #FF8300 0%, #6B3F23 100%);
+            z-index: 1;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #FF8300 0%, #FF9933 50%, #6B3F23 100%);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 131, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .header:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(255, 131, 0, 0.4);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(0%) translateY(0%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .header h1 {
+            font-size: clamp(24px, 5vw, 36px);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInDown 1s ease-out;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeIn 1.5s ease-out;
+        .header h2 {
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 500;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
         }
 
-        .cta-button {
-            background: linear-gradient(45deg, #FF8C00, #FF6347);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+        .period {
+            font-size: clamp(14px, 3vw, 16px);
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            opacity: 0.95;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.6);
-            background: linear-gradient(45deg, #FF6347, #FF8C00);
+        .section {
+            margin-bottom: 50px;
+            animation: slideInUp 0.8s ease-out;
+            animation-fill-mode: both;
         }
 
-        /* Stats Section */
-        .stats {
-            background: #f8f9fa;
-            padding: 4rem 0;
-        }
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+        .section:nth-child(4) { animation-delay: 0.3s; }
 
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border-left: 4px solid #FF8C00;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.2);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #FF8C00;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #333;
-            font-size: 1.1rem;
-        }
-
-        /* Programs Section */
-        .programs {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .programs-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: rgba(255, 140, 0, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 140, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 140, 0, 0.2);
-            border: 1px solid rgba(255, 140, 0, 0.5);
-        }
-
-        /* Admission Process */
-        .admission {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .admission-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #FF8C00 0%, #FF6347 100%);
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        .step:hover {
-            transform: scale(1.05);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .testimonials-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial:hover {
-            transform: translateY(-5px);
-        }
-
-        .student-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .student-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #FF8C00, #FF6347);
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
+        @keyframes slideInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -323,205 +136,885 @@
             }
         }
 
-        @keyframes slideInDown {
+        .section-title {
+            font-size: clamp(20px, 4vw, 28px);
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #6B3F23;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+            letter-spacing: 1px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 60%;
+            background: linear-gradient(180deg, #FF8300, #6B3F23);
+            border-radius: 3px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #FF8300, transparent);
+            border-radius: 2px;
+        }
+
+        .position {
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            padding: 25px;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .position:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 131, 0, 0.15);
+            border-color: #FF8300;
+        }
+
+        .position::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #FF8300, #6B3F23);
+            transition: width 0.3s ease;
+        }
+
+        .position:hover::before {
+            width: 8px;
+        }
+
+        .position h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #6B3F23;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .name {
+            font-size: 16px;
+            font-weight: 500;
+            color: #FF8300;
+            margin-bottom: 15px;
+        }
+
+        .responsibilities {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #6B3F23;
+        }
+
+        .responsibilities-list {
+            list-style: none;
+            margin-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .responsibilities-list li {
+            margin-bottom: 8px;
+            font-size: 13px;
+            text-align: justify;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+
+        .responsibilities-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, #FF8300, #6B3F23);
+            border-radius: 50%;
+        }
+
+        .month-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        .month-section:nth-child(1) { animation-delay: 0.1s; }
+        .month-section:nth-child(2) { animation-delay: 0.2s; }
+        .month-section:nth-child(3) { animation-delay: 0.3s; }
+        .month-section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: scale(0.95);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .month-title {
+            font-size: clamp(18px, 4vw, 22px);
+            font-weight: 700;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #FF8300 0%, #FF9933 50%, #6B3F23 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(255, 131, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
         }
 
-        /* Mobile Responsiveness */
+        .month-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .month-title:hover::before {
+            left: 100%;
+        }
+
+        .activity {
+            margin-bottom: 25px;
+            padding: 25px;
+            background: linear-gradient(135deg, #fff 0%, #fafbfc 100%);
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0) scale(1);
+        }
+
+        .activity:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 131, 0, 0.2);
+            border-color: #FF8300;
+        }
+
+        .activity::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8300, #6B3F23);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .activity:hover::before {
+            transform: scaleX(1);
+        }
+
+        .activity-header {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6B3F23;
+            border-bottom: 2px solid #f8f9fa;
+            padding-bottom: 10px;
+        }
+
+        .activity-details {
+            font-size: 13px;
+        }
+
+        .activity-details div {
+            margin-bottom: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .label {
+            font-weight: 600;
+            display: inline-block;
+            width: 130px;
+            color: #FF8300;
+            position: relative;
+        }
+
+        .pending-activities {
+            background: linear-gradient(135deg, #fff8e6 0%, #fff3cd 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.2);
+            margin-bottom: 30px;
+            border: 2px solid #FFB84D;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pending-activities::before {
+            content: 'PENDIENTE';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #FF8300;
+            color: white;
+            padding: 5px 50px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+            letter-spacing: 1px;
+        }
+
+        .pending-activity {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #FF8300;
+            transition: all 0.3s ease;
+        }
+
+        .pending-activity:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(255, 131, 0, 0.15);
+        }
+
+        .pending-activity h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #6B3F23;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-top: 4px solid #FF8300;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 131, 0, 0.15);
+        }
+
+        .objective-card h4 {
+            color: #6B3F23;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #FF8300 0%, #6B3F23 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 131, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) rotateY(5deg);
+            box-shadow: 0 15px 40px rgba(255, 131, 0, 0.4);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-left: 4px solid #6B3F23;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(107, 63, 35, 0.15);
+            border-left-color: #FF8300;
+        }
+
+        .contact-card h4 {
+            color: #FF8300;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #6B3F23 0%, #4a2c1a 100%);
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(107, 63, 35, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8300, #6B3F23, #FF8300);
+        }
+
+        .footer-info {
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .disclaimer {
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
+            .container {
+                margin: 10px;
+                padding: 15px;
+                border-radius: 15px;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .header {
+                padding: 30px 15px;
             }
 
-            .hero p {
-                font-size: 1.1rem;
+            .section {
+                margin-bottom: 30px;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .position, .activity {
+                padding: 20px;
+            }
+
+            .month-title {
+                padding: 15px 20px;
+            }
+
+            .label {
+                width: 100px;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .objectives-grid, .stats-container, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
 
-        /* Scroll animations */
-        .scroll-fade {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .scroll-fade.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8300, #6B3F23);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 1000;
+            transition: transform 0.1s ease;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">Universidad Anáhuac Cancún</div>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#programas">Programas</a></li>
-                <li><a href="#admisiones">Admisiones</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>BIENVENIDO AL CAMPUS INTERNACIONAL</h1>
-            <p>Conviértete en un líder internacional de acción positiva en el corazón del Caribe Mexicano</p>
-            <a href="#programas" class="cta-button">Descubre Nuestros Programas</a>
+    <div class="scroll-indicator"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Sociedad de Alumnos de Ingeniería</h1>
+            <h2>Planeación de Actividades Agosto - Diciembre 2025</h2>
+            <div class="period"><strong>Período Académico:</strong> Agosto 2025 - Junio 2026</div>
         </div>
-    </section>
 
-    <!-- Stats Section -->
-    <section class="stats scroll-fade">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">2%</div>
-                <div class="stat-label">Mejores Universidades del Mundo</div>
+        <div class="section">
+            <h2 class="section-title">Mesa Directiva 2025-2026</h2>
+            
+            <div class="position">
+                <h3>Presidenta</h3>
+                <div class="name">Nancy Patricia Squeo</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Representar oficialmente a la sociedad de alumnos ante autoridades universitarias y externas</li>
+                    <li>Coordinar y supervisar todas las actividades y áreas de la sociedad</li>
+                    <li>Convocar y presidir las reuniones del comité directivo</li>
+                    <li>Ser el principal responsable del cumplimiento del plan de trabajo anual</li>
+                    <li>Promover la participación activa del alumnado y fomentar la unidad del grupo</li>
+                </ul>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">21M+</div>
-                <div class="stat-label">Turistas en Quintana Roo 2023</div>
+
+            <div class="position">
+                <h3>Vicepresidenta</h3>
+                <div class="name">Leah Regina Zepeda Pérez</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Apoyar al presidente en todas sus funciones y reemplazarlo en caso de ausencia</li>
+                    <li>Coordinar y dar seguimiento a los proyectos transversales entre distintas áreas</li>
+                    <li>Supervisar el cumplimiento de los objetivos y tiempos del equipo</li>
+                    <li>Mantener la comunicación constante con los coordinadores para resolver conflictos o dificultades</li>
+                </ul>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">32M+</div>
-                <div class="stat-label">Pasajeros Aeropuerto Cancún 2023</div>
+
+            <div class="position">
+                <h3>Secretario</h3>
+                <div class="name">Benjamín Barona Tovar</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Redactar actas de las reuniones y dar seguimiento a los acuerdos</li>
+                    <li>Organizar la agenda y el calendario de actividades oficiales</li>
+                    <li>Gestionar la correspondencia interna y externa</li>
+                    <li>Llevar el control de la documentación oficial de la sociedad</li>
+                </ul>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Ciudades Conectadas</div>
+
+            <div class="position">
+                <h3>Coordinadora General</h3>
+                <div class="name">Angie Vega Flores</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Supervisar y apoyar a todos los coordinadores de área</li>
+                    <li>Servir de enlace entre los responsables de cada proyecto y la mesa directiva</li>
+                    <li>Asegurar que cada actividad cuente con los recursos y logística adecuados</li>
+                    <li>Evaluar el desempeño de las áreas y proponer mejoras operativas</li>
+                </ul>
+            </div>
+
+            <div class="position">
+                <h3>Tesorero</h3>
+                <div class="name">Jorge Eduardo Poblano Uh</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Administrar el presupuesto de la sociedad y llevar el control de ingresos y egresos</li>
+                    <li>Elaborar reportes financieros periódicos y transparentes</li>
+                    <li>Supervisar las recaudaciones y pagos de eventos o actividades</li>
+                    <li>Gestionar solicitudes de apoyo económico ante autoridades o patrocinadores</li>
+                </ul>
+            </div>
+
+            <div class="position">
+                <h3>Coordinador de Integración</h3>
+                <div class="name">Gustavo Pabon</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Organizar actividades recreativas, culturales y de convivencia entre los alumnos</li>
+                    <li>Fomentar el sentido de pertenencia y la identidad de carrera</li>
+                    <li>Escuchar propuestas del alumnado sobre eventos y dinámicas</li>
+                    <li>Apoyar en la difusión de eventos sociales y mantener la participación activa</li>
+                </ul>
+            </div>
+
+            <div class="position">
+                <h3>Coordinador de Acción Social</h3>
+                <div class="name">Enrique Canales</div>
+                <div class="responsibilities">Responsabilidades:</div>
+                <ul class="responsibilities-list">
+                    <li>Diseñar y coordinar campañas solidarias, ecológicas o de voluntariado</li>
+                    <li>Vincularse con asociaciones civiles o causas sociales</li>
+                    <li>Promover entre los estudiantes la conciencia social y la responsabilidad ciudadana</li>
+                    <li>Evaluar el impacto de las actividades y rendir informes sobre resultados</li>
+                </ul>
             </div>
         </div>
-    </section>
 
-    <!-- Programs Section -->
-    <section class="programs scroll-fade" id="programas">
-        <div class="programs-container">
-            <h2 class="section-title">Nuestros Programas Internacionales</h2>
-            <div class="program-card">
-                <h3>International Hotel Management</h3>
-                <p>Forma parte de la industria hotelera más dinámica del mundo en el destino turístico #1 de México.</p>
-            </div>
-            <div class="program-card">
-                <h3>Comunicación Internacional</h3>
-                <p>Desarrolla habilidades de comunicación global en un entorno multicultural único.</p>
-            </div>
-            <div class="program-card">
-                <h3>Negocios Internacionales</h3>
-                <p>Prepárate para liderar en el mercado global desde el corazón del Caribe.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Admission Process -->
-    <section class="admission scroll-fade" id="admisiones">
-        <div class="admission-container">
-            <h2 class="section-title">Proceso de Admisión</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Solicita Información</h3>
-                    <p>Contacta con nuestro equipo de admisiones internacional</p>
+        <div class="section">
+            <h2 class="section-title">Objetivos Generales del Período</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h4>1. Integración Académica y Profesional</h4>
+                    <p>Fortalecer la vinculación entre la formación teórica y la práctica profesional mediante visitas industriales, conferencias y talleres especializados que permitan a los estudiantes conocer de primera mano la aplicación de los conocimientos adquiridos en el aula.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Proceso de Admisión</h3>
-                    <p>Conoce todos los pasos y requisitos necesarios</p>
+                <div class="objective-card">
+                    <h4>2. Desarrollo de Competencias Sociales</h4>
+                    <p>Promover el desarrollo de habilidades blandas y competencias sociales a través de actividades de integración, trabajo en equipo y participación en proyectos de acción social que contribuyan al crecimiento personal y profesional.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Programa tus Pruebas</h3>
-                    <p>Agenda tus exámenes de admisión</p>
+                <div class="objective-card">
+                    <h4>3. Fortalecimiento del Sentido de Pertenencia</h4>
+                    <p>Fomentar la identidad estudiantil y el sentido de pertenencia a la institución mediante eventos culturales, deportivos y de convivencia que permitan la interacción entre estudiantes de diferentes semestres y carreras.</p>
+                </div>
+                <div class="objective-card">
+                    <h4>4. Responsabilidad Social</h4>
+                    <p>Desarrollar conciencia social y compromiso ciudadano a través de actividades de voluntariado, campañas ecológicas y proyectos de impacto comunitario que permitan a los estudiantes contribuir al bienestar de la sociedad.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials scroll-fade" id="testimonios">
-        <div class="testimonials-container">
-            <h2 class="section-title">Testimonios de Estudiantes Internacionales</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <div class="student-info">
-                        <div class="student-avatar">MM</div>
-                        <div>
-                            <h4>Mónica Marenko</h4>
-                            <p>Nicaragua</p>
-                        </div>
+        <div class="section">
+            <h2 class="section-title">Indicadores de Éxito</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Participación en actividades dirigidas por semestre</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">Satisfacción en evaluaciones post-actividad</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Ocupación en visitas industriales con cupo limitado</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Nuevas alianzas con empresas e instituciones</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Calendario de Actividades</h2>
+
+            <div class="month-section">
+                <h3 class="month-title">Agosto 2025</h3>
+                <div class="activity">
+                    <div class="activity-header">Lunes 16 de Septiembre - Evento Institucional</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Kermés de Independencia</div>
+                        <div><span class="label">Dirigido a:</span> Toda la comunidad universitaria</div>
+                        <div><span class="label">Ubicación:</span> Campus Universitario</div>
+                        <div><span class="label">Propósito:</span> Celebración institucional</div>
+                        <div><span class="label">Responsable:</span> FESAL</div>
                     </div>
-                    <p>"Estudiar en la Universidad Anáhuac Cancún ha sido una experiencia muy especial. Las instalaciones son muy bonitas, y la experiencia de ser una alumna internacional es muy enriquecedora."</p>
                 </div>
-                <div class="testimonial">
-                    <div class="student-info">
-                        <div class="student-avatar">JA</div>
-                        <div>
-                            <h4>José Armando Alarcón</h4>
-                            <p>Honduras</p>
-                        </div>
+            </div>
+
+            <div class="month-section">
+                <h3 class="month-title">Octubre 2025</h3>
+                <div class="activity">
+                    <div class="activity-header">Jueves 9 de Octubre - Visita Industrial</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Visita a Tornos y Cisneros</div>
+                        <div><span class="label">Dirigido a:</span> 7mo y 9no semestre de Ingeniería Industrial</div>
+                        <div><span class="label">Ubicación:</span> Empresa Tornos y Cisneros</div>
+                        <div><span class="label">Propósito:</span> Visita técnica especializada</div>
+                        <div><span class="label">Responsable:</span> Prof. Cerecero</div>
+                        <div><span class="label">Transporte:</span> Van reservada</div>
                     </div>
-                    <p>"Throughout the semesters I've learned a lot about hospitality management. The teachers have been very kind and supportive. It's an honor to be part of this university."</p>
                 </div>
-                <div class="testimonial">
-                    <div class="student-info">
-                        <div class="student-avatar">AG</div>
-                        <div>
-                            <h4>Andrea García Borreguero</h4>
-                            <p>España</p>
-                        </div>
+
+                <div class="activity">
+                    <div class="activity-header">Lunes 13 de Octubre - Visita Industrial</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Visita a PM Corporativo (Cortes láser, fresadoras)</div>
+                        <div><span class="label">Dirigido a:</span> 3er y 4to semestre de Ingeniería Industrial</div>
+                        <div><span class="label">Ubicación:</span> PM Corporativo</div>
+                        <div><span class="label">Propósito:</span> Conocer procesos de manufactura avanzada</div>
+                        <div><span class="label">Responsable:</span> Coord. Juan Pablo Riquelme</div>
+                        <div><span class="label">Transporte:</span> Van reservada</div>
                     </div>
-                    <p>"Después de cinco años en esta institución, puedo afirmar que la Universidad Anáhuac Cancún me ha brindado conocimiento, pasión y todas las oportunidades que he requerido."</p>
                 </div>
-                <div class="testimonial">
-                    <div class="student-info">
-                        <div class="student-avatar">CS</div>
-                        <div>
-                            <h4>Carlos Salinas Tadic</h4>
-                            <p>Bolivia</p>
-                        </div>
+
+                <div class="activity">
+                    <div class="activity-header">Lunes 20 de Octubre - Visita Industrial Académica</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Visita a PM Corporativo (Procesos de manufactura)</div>
+                        <div><span class="label">Dirigido a:</span> 5to y 6to semestre de Ingeniería Industrial</div>
+                        <div><span class="label">Ubicación:</span> PM Corporativo</div>
+                        <div><span class="label">Propósito:</span> Complemento académico - Procesos de Manufactura</div>
+                        <div><span class="label">Profesor:</span> Prof. Enrique Machaen</div>
+                        <div><span class="label">Responsable:</span> Coord. Juan Pablo Riquelme</div>
+                        <div><span class="label">Estado:</span> Confirmación pendiente del Prof. Machaen</div>
                     </div>
-                    <p>"My experience as an International Hotel Management student has been excellent. The teachers are well-prepared and passionate. Choosing this career was the best decision I took!"</p>
+                </div>
+
+                <div class="activity">
+                    <div class="activity-header">Viernes 25 de Octubre - Evento Institucional</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Fiesta de Halloween</div>
+                        <div><span class="label">Dirigido a:</span> Toda la comunidad universitaria</div>
+                        <div><span class="label">Ubicación:</span> Campus Universitario</div>
+                        <div><span class="label">Propósito:</span> Celebración institucional y convivencia</div>
+                        <div><span class="label">Responsable:</span> FESAL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="month-section">
+                <h3 class="month-title">Diciembre 2025</h3>
+                <div class="activity">
+                    <div class="activity-header">Fecha por definir - Evento Institucional</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Kermés Navideña</div>
+                        <div><span class="label">Dirigido a:</span> Toda la comunidad universitaria</div>
+                        <div><span class="label">Ubicación:</span> Campus Universitario</div>
+                        <div><span class="label">Propósito:</span> Celebración institucional de fin de año</div>
+                        <div><span class="label">Responsable:</span> FESAL</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer" id="contacto">
-        <div class="footer-content">
-            <h3>Universidad Anáhuac Cancún</h3>
-            <p>Campus Internacional - Formando Líderes de Acción Positiva</p>
-            <p>Cancún, Quintana Roo, México</p>
-            <br>
-            <p>&copy; 2025 Universidad Anáhuac Cancún. Todos los derechos reservados.</p>
+        <div class="section">
+            <h2 class="section-title">Actividades en Proceso de Confirmación</h2>
+            
+            <div class="pending-activities">
+                <div class="pending-activity">
+                    <h4>Visita a Concrejal</h4>
+                    <div class="activity-details">
+                        <div><span class="label">Dirigido a:</span> Estudiantes de Estructuras de Concreto (7mo semestre Civil)</div>
+                        <div><span class="label">Posible ampliación:</span> Estudiantes de 5to semestre de Ingeniería Civil</div>
+                        <div><span class="label">Ubicación:</span> Instalaciones de Concrejal</div>
+                        <div><span class="label">Propósito:</span> Conocer proceso de fabricación del concreto</div>
+                        <div><span class="label">Responsable:</span> Coord. Alejandro Miranda</div>
+                        <div><span class="label">Consideración:</span> Evaluar inclusión de estudiantes de Construcción II</div>
+                    </div>
+                </div>
+
+                <div class="pending-activity">
+                    <h4>Visita al Aeropuerto de Cancún</h4>
+                    <div class="activity-details">
+                        <div><span class="label">Dirigido a:</span> Estudiantes de las cuatro ingenierías</div>
+                        <div><span class="label">Modalidad:</span> Cupo limitado</div>
+                        <div><span class="label">Ubicación:</span> Aeropuerto Internacional de Cancún</div>
+                        <div><span class="label">Propósito:</span> Aplicación práctica de ingeniería en infraestructura aeroportuaria</div>
+                        <div><span class="label">Responsable:</span> Directora Lilia Melchor Blanco</div>
+                        <div><span class="label">Planificación:</span> Dos visitas para optimizar experiencia educativa</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <div class="section">
+            <h2 class="section-title">Metodología de Trabajo</h2>
+            <div class="objectives-grid">
+                <div class="objective-card">
+                    <h4>Planificación</h4>
+                    <p>Cada actividad será planificada con al menos 4 semanas de anticipación, incluyendo coordinación con empresas, instituciones, profesores y autoridades universitarias.</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Coordinación</h4>
+                    <p>Comunicación constante entre mesa directiva y coordinadores de área para asegurar cumplimiento de objetivos y resolución oportuna de inconvenientes.</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Seguimiento</h4>
+                    <p>Reuniones semanales de seguimiento para evaluar avance de actividades programadas y realizar ajustes necesarios en caso de cambios o imprevistos.</p>
+                </div>
+                <div class="objective-card">
+                    <h4>Evaluación</h4>
+                    <p>Evaluación posterior a cada actividad para medir impacto, satisfacción de participantes e identificar áreas de mejora para futuras actividades.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Recursos y Logística</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Recursos Humanos</h4>
+                    <div style="font-size: 13px; line-height: 1.6;">
+                        <p><strong>Mesa directiva:</strong> 7 integrantes especializados</p>
+                        <p><strong>Coordinadores:</strong> Especialistas por área técnica</p>
+                        <p><strong>Profesores:</strong> Acompañantes según actividad</p>
+                        <p><strong>Personal FESAL:</strong> Apoyo logístico integral</p>
+                        <p><strong>Voluntarios:</strong> Estudiantes para eventos masivos</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h4>Recursos Materiales</h4>
+                    <div style="font-size: 13px; line-height: 1.6;">
+                        <p><strong>Transporte:</strong> Vans reservadas para visitas</p>
+                        <p><strong>Promocional:</strong> Material de difusión y marketing</p>
+                        <p><strong>Audiovisual:</strong> Equipo para presentaciones</p>
+                        <p><strong>Eventos:</strong> Materiales para kermeses y festivales</p>
+                        <p><strong>Documentación:</strong> Permisos y papelería oficial</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h4>Recursos Financieros</h4>
+                    <div style="font-size: 13px; line-height: 1.6;">
+                        <p><strong>Presupuesto:</strong> Asignado por la universidad</p>
+                        <p><strong>Recaudación:</strong> Fondos de actividades propias</p>
+                        <p><strong>Patrocinios:</strong> Apoyos externos empresariales</p>
+                        <p><strong>Contribuciones:</strong> Voluntarias de comunidad estudiantil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Contactos y Referencias</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h4>Mesa Directiva</h4>
+                    <div style="font-size: 13px; line-height: 1.8;">
+                        <div><strong>Presidenta:</strong> Nancy Patricia Squeo</div>
+                        <div><strong>Vicepresidenta:</strong> Leah Regina Zepeda Pérez</div>
+                        <div><strong>Secretario:</strong> Benjamín Barona Tovar</div>
+                        <div><strong>Tesorero:</strong> Jorge Eduardo Poblano Uh</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h4>Coordinadores Académicos</h4>
+                    <div style="font-size: 13px; line-height: 1.8;">
+                        <div><strong>Irving Tolosa:</strong> Visitas industriales TIND</div>
+                        <div><strong>Juan Pablo Riquelme:</strong> Visitas PM Corporativo</div>
+                        <div><strong>Alejandro Miranda:</strong> Sector construcción</div>
+                        <div><strong>Prof. Cerecero:</strong> Visitas técnicas especializadas</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h4>Autoridades Universitarias</h4>
+                    <div style="font-size: 13px; line-height: 1.8;">
+                        <div><strong>Lilia Melchor Blanco:</strong> Directora - Coordinación aeroportuaria</div>
+                        <div><strong>FESAL:</strong> Eventos institucionales y logística</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <h4>Empresas Aliadas</h4>
+                    <div style="font-size: 13px; line-height: 1.8;">
+                        <div><strong>PM Corporativo:</strong> Visitas industriales manufactura</div>
+                        <div><strong>Tornos y Cisneros:</strong> Visitas técnicas especializadas</div>
+                        <div><strong>C5:</strong> Visitas industriales TIND</div>
+                        <div><strong>Concrejal:</strong> Visitas sector construcción</div>
+                        <div><strong>Aeropuerto Cancún:</strong> Infraestructura aeroportuaria</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-info">
+                <strong>Documento elaborado por:</strong><br>
+                Sociedad de Alumnos de Ingeniería<br>
+                Período Académico 2025-2026<br><br>
+                <strong>Fecha de elaboración:</strong> Agosto 2025<br>
+                <strong>Próxima revisión:</strong> Diciembre 2025
+            </div>
+            
+            <div class="disclaimer">
+                Este documento está sujeto a modificaciones según disponibilidad de recursos, confirmación de fechas con empresas e instituciones, y aprobación de las autoridades académicas correspondientes. Para mayor información, contactar a la mesa directiva de la Sociedad de Alumnos de Ingeniería.
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-indicator').style.transform = `scaleX(${scrolled / 100})`;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.section, .month-section, .activity, .position').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects for better interactivity
+        document.querySelectorAll('.activity, .position, .objective-card, .contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.style.transform.replace('scale(1)', 'scale(1.02)');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = this.style.transform.replace('scale(1.02)', 'scale(1)');
+            });
+        });
+
+        // Smooth scrolling for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -534,50 +1027,30 @@
                 }
             });
         });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-fade').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(26, 26, 26, 0.95)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
-            }
-        });
-
-        // Dynamic text animation
-        const heroTitle = document.querySelector('.hero h1');
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-
-        setTimeout(typeWriter, 1000);
     </script>
 </body>
-</html>
+</html>-header">Sábado 16 de Agosto - Actividad Recreativa</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Catamarán</div>
+                        <div><span class="label">Dirigido a:</span> Todos los alumnos de ingeniería interesados</div>
+                        <div><span class="label">Ubicación:</span> Isla Mujeres</div>
+                        <div><span class="label">Propósito:</span> Celebración de integración</div>
+                        <div><span class="label">Responsable:</span> FESAL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="month-section">
+                <h3 class="month-title">Septiembre 2025</h3>
+                <div class="activity">
+                    <div class="activity-header">Mediados de Septiembre (Fecha por confirmar)</div>
+                    <div class="activity-details">
+                        <div><span class="label">Actividad:</span> Visita al C5</div>
+                        <div><span class="label">Dirigido a:</span> 4to, 5to, 6to y 7mo semestre de TIND</div>
+                        <div><span class="label">Responsable:</span> Coord. Irving Tolosa</div>
+                        <div><span class="label">Observaciones:</span> Se coordinarán dos visitas</div>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="activity
